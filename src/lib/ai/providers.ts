@@ -203,7 +203,7 @@ function normalizeSignal(agent: Agent, content?: string | null): GeneratedSignal
     marketId: String(parsed.marketId ?? `${agent.slug.toUpperCase()}-${Date.now().toString(36).toUpperCase()}`),
     venue,
     action,
-    amount: Math.min(Math.max(Number(parsed.amount ?? 50), 10), 180),
+    amount: Math.min(Math.max(Number(parsed.amount ?? 20), 10), 20),
     confidence: Math.min(Math.max(Number(parsed.confidence ?? agent.confidenceThreshold), agent.confidenceThreshold), 0.98),
     rationale: String(parsed.rationale ?? "Provider generated a policy-safe market action intent."),
     category: agent.category,

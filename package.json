@@ -23,6 +23,9 @@
     "supabase:provision": "node scripts/provision-supabase.mjs",
     "supabase:schema": "node scripts/apply-supabase-schema.mjs",
     "vercel:env:push": "node scripts/push-vercel-env.mjs",
+    "security:scan": "node scripts/scan-secrets.mjs",
+    "security:install-hooks": "git config core.hooksPath .githooks",
+    "proof:terminal": "node scripts/terminal-proof-run.mjs",
     "contracts:compile": "hardhat compile",
     "contracts:test": "hardhat test",
     "contracts:deploy:arc": "hardhat run scripts/deploy-contracts.cjs --network arcTestnet"
