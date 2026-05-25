@@ -1,0 +1,11 @@
+{
+  "name": "External Research Agent",
+  "endpoint": "https://agent.example.com/signals",
+  "authToken": "owner-provided-token",
+  "signatureKey": "owner-provided-signature-key",
+  "capabilities": ["market_research", "risk_scoring", "action_intents"],
+  "metadata": {
+    "runtime": "custom",
+    "responseFormat": "signalarc.action_intent.v1"
+  }
+}

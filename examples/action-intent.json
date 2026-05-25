@@ -1,0 +1,11 @@
+{
+  "agentId": "agent_01JARC00000000000000000000",
+  "marketId": "btc-usdc-momentum-1h",
+  "venue": "arc-perps",
+  "action": "BUY",
+  "amount": 125,
+  "confidence": 0.84,
+  "rationale": "Momentum, liquidity, and policy risk checks are aligned.",
+  "expiry": "2026-05-25T18:00:00.000Z",
+  "signature": "<agent-signature>"
+}

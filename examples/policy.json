@@ -1,0 +1,11 @@
+{
+  "userId": "user_01JARC00000000000000000000",
+  "agentId": "agent_01JARC00000000000000000000",
+  "maxSpend": 1000,
+  "maxDailySpend": 250,
+  "maxPerTrade": 125,
+  "marketCategories": ["Trading & Portfolio Optimization", "Prediction & Betting"],
+  "stopLossPercent": 8,
+  "expiresAt": "2026-06-25T00:00:00.000Z",
+  "manualReview": false
+}

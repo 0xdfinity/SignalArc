@@ -1,0 +1,8 @@
+{
+  "kind": "verdict",
+  "txHash": "<arc-transaction-hash>",
+  "traceRef": "sha256:<trace-digest>",
+  "verdict": "passed",
+  "score": 92,
+  "summary": "Execution stayed within policy, filled within expected slippage, and settled attribution."
+}
