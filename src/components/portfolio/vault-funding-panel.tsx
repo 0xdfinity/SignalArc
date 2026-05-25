@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ERC20_USDC_ABI, POLICY_VAULT_ABI } from "@/lib/arc/contracts";
-import { connectArcWallet } from "@/lib/arc/browser-wallet";
+import { connectArcWallet, getActiveEthereumProvider } from "@/lib/arc/browser-wallet";
 
 type ArcConfig = {
   chain: {
@@ -82,7 +82,13 @@ export function VaultFundingPanel({ accountWallet }: { accountWallet: string }) 
         throw new Error("Enter a USDC amount greater than zero.");
       }
 
-      const browserProvider = new BrowserProvider(window.ethereum as Eip1193Provider);
+      const injectedProvider = getActiveEthereumProvider();
+
+      if (!injectedProvider) {
+        throw new Error("No connected wallet provider was found.");
+      }
+
+      const browserProvider = new BrowserProvider(injectedProvider as Eip1193Provider);
       const signer = await browserProvider.getSigner();
       const usdc = new Contract(config.contracts.usdcAddress, ERC20_USDC_ABI, signer);
       const vault = new Contract(config.contracts.policyVaultAddress, POLICY_VAULT_ABI, signer);
@@ -146,7 +152,13 @@ export function VaultFundingPanel({ accountWallet }: { accountWallet: string }) 
 
   async function loadWalletState(wallet: string) {
     const config = await loadConfig();
-    const browserProvider = new BrowserProvider(window.ethereum as Eip1193Provider);
+    const injectedProvider = getActiveEthereumProvider();
+
+    if (!injectedProvider) {
+      throw new Error("No connected wallet provider was found.");
+    }
+
+    const browserProvider = new BrowserProvider(injectedProvider as Eip1193Provider);
     const usdc = new Contract(config.contracts.usdcAddress, ERC20_USDC_ABI, browserProvider);
     const vault = new Contract(config.contracts.policyVaultAddress, POLICY_VAULT_ABI, browserProvider);
     const [rawUsdc, rawGas, rawVault] = await Promise.all([
